@@ -1,4 +1,4 @@
-##ifndef CELLULAR_AUTOMATA_GRID_H
+#ifndef CELLULAR_AUTOMATA_GRID_H
 #define CELLULAR_AUTOMATA_GRID_H
 #include <memory>
 #include <vector>
@@ -13,9 +13,10 @@ public:
    ~CellularAutomataGrid();
    int getx();
    int gety();
+   bool getCellState(int x, int y);
 private:
    int x;
    int y;
-   std::unique_ptr<bool[]> grid;
+   std::vector<std::vector<bool>> grid;
 };
 #endif
