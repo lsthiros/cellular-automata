@@ -3,20 +3,18 @@
 #include <memory>
 #include <vector>
 
-class CellularAutomataGrid
-{
+class CellularAutomataGrid {
 public:
    CellularAutomataGrid(int x, int y);
-   CellularAutomataGrid(const CellularAutomataGrid& base, int xFactor, int yFactor);
+   CellularAutomataGrid(CellularAutomataGrid& base, int xFactor, int yFactor);
    void setCell(int x, int y, bool alive);
    void applyRule(const std::vector<int> &survive, const std::vector<int> &born, int iterations);
-   ~CellularAutomataGrid();
    int getx();
    int gety();
    bool getCellState(int x, int y);
 private:
    int x;
    int y;
-   std::vector<std::vector<bool>> grid;
+   std::vector<std::vector<bool> > grid;
 };
 #endif
