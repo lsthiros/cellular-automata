@@ -6,11 +6,12 @@
 class BinaryGridCanvas : public sf::Drawable
 {
 public:
-   BinaryGridCanvas(int xSize, int ySize, bool *grid);
-   ~BinaryGridCanvas();
+   BinaryGridCanvas(std::vector<std::vector<bool> > &newGrid);
 private:
-   std::vector<std::vector<bool>> grid;
+   int xSize;
+   int ySize;
+   std::vector<std::vector<bool> > grid;
 protected:
-   void draw(RenderTarget &target, RenderStates states);
+   void draw(sf::RenderTarget &target, sf::RenderStates states);
 };
 #endif

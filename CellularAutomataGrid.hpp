@@ -12,6 +12,7 @@ public:
    int getx();
    int gety();
    bool getCellState(int x, int y);
+   std::vector<std::vector<bool> > getGrid();
 private:
    int x;
    int y;

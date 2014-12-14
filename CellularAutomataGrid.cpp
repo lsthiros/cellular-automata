@@ -1,6 +1,10 @@
 #include <algorithm>
 #include "CellularAutomataGrid.hpp"
 
+std::vector<std::vector<bool> > CellularAutomataGrid::getGrid() {
+   return grid;
+}
+
 int CellularAutomataGrid::getx() {
    return x;
 }
