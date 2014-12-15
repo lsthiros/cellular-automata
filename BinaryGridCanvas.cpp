@@ -1,9 +1,11 @@
 #include "BinaryGridCanvas.hpp"
 
-BinaryGridCanvas::BinaryGridCanvas(std::vector<std::vector<bool> > &newGrid) : grid(newGrid) {
+BinaryGridCanvas::BinaryGridCanvas(const std::vector<std::vector<bool> > &newGrid) : grid(newGrid) {
+   xSize = grid.size();
+   ySize = grid[0].size();
 }
 
-void BinaryGridCanvas::draw(sf::RenderTarget &target, sf::RenderStates states) {
+void BinaryGridCanvas::draw(sf::RenderTarget &target, sf::RenderStates states) const {
    sf::Vector2f view = target.getView().getSize();
    float xResolution = view.x / xSize;
    float yResolution = view.y / ySize;

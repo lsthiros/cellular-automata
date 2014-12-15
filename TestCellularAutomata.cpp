@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
+#include <SFML/Graphics.hpp>
 
+#include "BinaryGridCanvas.hpp"
 #include "CellularAutomataGrid.hpp"
 
 namespace {
@@ -111,6 +113,27 @@ namespace {
       ASSERT_TRUE(testGrid.getCellState(3,2));
       ASSERT_TRUE(testGrid.getCellState(2,3));
       ASSERT_TRUE(testGrid.getCellState(3,3));
+   }
+
+   TEST(UITest, TestBasicUi) {
+      sf::RenderWindow window(sf::VideoMode(800,600), "Test Window One");
+
+      CellularAutomataGrid testGrid(2, 2);
+      testGrid.setCell(0,0, true);
+      testGrid.setCell(1,1, true);
+
+      while(window.isOpen()) {
+         sf::Event event;
+         while(window.pollEvent(event)) {
+            if(event.type == sf::Event::Closed) {
+               window.close();
+            }
+         }
+         window.clear(sf::Color::Black);
+         BinaryGridCanvas testCanvas(testGrid.getGrid());
+         window.draw(testCanvas);
+         window.display();
+      }
    }
 
    int main(int argc, char** argv) {
