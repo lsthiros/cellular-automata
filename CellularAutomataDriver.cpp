@@ -42,12 +42,27 @@ int main(int argc, char** argv) {
    survive.push_back(7);
    survive.push_back(8);
 
-   grid.applyRule(survive, born, 15);
+   grid.applyRule(survive, born, 1);
+
+   grid = CellularAutomataGrid(grid, 2, 2);
+   born = std::vector<int>();
+   born.push_back(5);
+   born.push_back(6);
+   born.push_back(7);
+   born.push_back(8);
+   survive = std::vector<int>();
+   survive.push_back(5);
+   survive.push_back(6);
+   survive.push_back(7);
+   survive.push_back(8);
+
+   grid.applyRule(survive, born, 1);
+   grid = CellularAutomataGrid(grid, 2, 2);
+   grid.applyRule(survive, born, 1);
+
    BinaryGridCanvas canvas(grid.getGrid());
 
    sf::RenderWindow window(sf::VideoMode(800,800), "Test Window One");
-   window.clear(sf::Color::Black);
-   window.draw(canvas);
    while(window.isOpen()) {
       sf::Event event;
       while(window.pollEvent(event)) {
@@ -55,6 +70,8 @@ int main(int argc, char** argv) {
             window.close();
          }
       }
+      window.clear(sf::Color::Black);
+      window.draw(canvas);
       window.display();
    }
 }
