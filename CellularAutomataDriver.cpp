@@ -1,3 +1,4 @@
+#include <chrono>
 #include <iostream>
 #include <random>
 #include <SFML/Graphics.hpp>
@@ -21,6 +22,7 @@ int main(int argc, char** argv) {
 
    CellularAutomataGrid grid(xDim, yDim);
    std::default_random_engine generator;
+   generator.seed(std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
    std::uniform_int_distribution<int> distribution(0, 100);
 
    for(int x = 0; x < xDim; x++) {
