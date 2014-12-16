@@ -8,7 +8,7 @@ public:
    CellularAutomataGrid(int x, int y);
    CellularAutomataGrid(CellularAutomataGrid& base, int xFactor, int yFactor);
    void setCell(int x, int y, bool alive);
-   void applyRule(const std::vector<int> &survive, const std::vector<int> &born, int iterations);
+   void applyRule(const std::vector<int> &survive, const std::vector<int> &born);
    int getx();
    int gety();
    bool getCellState(int x, int y);

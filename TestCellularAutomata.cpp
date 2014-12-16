@@ -37,7 +37,7 @@ namespace {
       std::vector<int> survive;
       survive.push_back(1);
 
-      testGrid.applyRule(survive, born, 1);
+      testGrid.applyRule(survive, born);
 
       ASSERT_FALSE(testGrid.getCellState(0,0));
       ASSERT_FALSE(testGrid.getCellState(0,1));
@@ -56,7 +56,7 @@ namespace {
       born.push_back(8);
       survive = std::vector<int>();
       survive.push_back(1);
-      testGrid.applyRule(survive, born, 1);
+      testGrid.applyRule(survive, born);
 
       ASSERT_TRUE(testGrid.getCellState(0,0));
       ASSERT_TRUE(testGrid.getCellState(0,1));
@@ -68,7 +68,7 @@ namespace {
       ASSERT_TRUE(testGrid.getCellState(2,1));
       ASSERT_TRUE(testGrid.getCellState(2,2));
 
-      testGrid.applyRule(survive, born, 1);
+      testGrid.applyRule(survive, born);
       ASSERT_FALSE(testGrid.getCellState(0,0));
       ASSERT_FALSE(testGrid.getCellState(0,1));
       ASSERT_FALSE(testGrid.getCellState(0,2));

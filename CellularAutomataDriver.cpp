@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
    survive.push_back(7);
    survive.push_back(8);
 
-   grid.applyRule(survive, born, 1);
+   grid.applyRule(survive, born);
 
    grid = CellularAutomataGrid(grid, 2, 2);
    born = std::vector<int>();
@@ -56,9 +56,9 @@ int main(int argc, char** argv) {
    survive.push_back(7);
    survive.push_back(8);
 
-   grid.applyRule(survive, born, 1);
+   grid.applyRule(survive, born);
    grid = CellularAutomataGrid(grid, 2, 2);
-   grid.applyRule(survive, born, 1);
+   grid.applyRule(survive, born);
 
    BinaryGridCanvas canvas(grid.getGrid());
 
