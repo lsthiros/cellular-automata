@@ -29,7 +29,7 @@ namespace {
    }
 
    TEST(CellularAutomataGrid, AlgorithmTest1) {
-      CellularAutomataGrid testGrid(3,3);
+      CellularAutomataGrid testGrid(4,4);
       testGrid.setCell(1, 1, true);
 
       std::vector<int> born;
@@ -39,45 +39,25 @@ namespace {
 
       testGrid.applyRule(survive, born);
 
-      ASSERT_FALSE(testGrid.getCellState(0,0));
-      ASSERT_FALSE(testGrid.getCellState(0,1));
-      ASSERT_FALSE(testGrid.getCellState(0,2));
-      ASSERT_FALSE(testGrid.getCellState(1,0));
-      ASSERT_FALSE(testGrid.getCellState(1,1));
-      ASSERT_FALSE(testGrid.getCellState(1,2));
-      ASSERT_FALSE(testGrid.getCellState(2,0));
-      ASSERT_FALSE(testGrid.getCellState(2,1));
-      ASSERT_FALSE(testGrid.getCellState(2,2));
-
-      testGrid = CellularAutomataGrid(3, 3);
-      testGrid.setCell(1,1, true);
-      born = std::vector<int>();
-      born.push_back(1);
-      born.push_back(8);
-      survive = std::vector<int>();
-      survive.push_back(1);
-      testGrid.applyRule(survive, born);
-
       ASSERT_TRUE(testGrid.getCellState(0,0));
       ASSERT_TRUE(testGrid.getCellState(0,1));
       ASSERT_TRUE(testGrid.getCellState(0,2));
+      ASSERT_TRUE(testGrid.getCellState(0,3));
+
       ASSERT_TRUE(testGrid.getCellState(1,0));
       ASSERT_FALSE(testGrid.getCellState(1,1));
-      ASSERT_TRUE(testGrid.getCellState(1,2));
-      ASSERT_TRUE(testGrid.getCellState(2,0));
-      ASSERT_TRUE(testGrid.getCellState(2,1));
-      ASSERT_TRUE(testGrid.getCellState(2,2));
-
-      testGrid.applyRule(survive, born);
-      ASSERT_FALSE(testGrid.getCellState(0,0));
-      ASSERT_FALSE(testGrid.getCellState(0,1));
-      ASSERT_FALSE(testGrid.getCellState(0,2));
-      ASSERT_FALSE(testGrid.getCellState(1,0));
-      ASSERT_TRUE(testGrid.getCellState(1,1));
       ASSERT_FALSE(testGrid.getCellState(1,2));
-      ASSERT_FALSE(testGrid.getCellState(2,0));
+      ASSERT_TRUE(testGrid.getCellState(1,3));
+
+      ASSERT_TRUE(testGrid.getCellState(2,0));
       ASSERT_FALSE(testGrid.getCellState(2,1));
       ASSERT_FALSE(testGrid.getCellState(2,2));
+      ASSERT_TRUE(testGrid.getCellState(2,3));
+
+      ASSERT_TRUE(testGrid.getCellState(3,0));
+      ASSERT_TRUE(testGrid.getCellState(3,1));
+      ASSERT_TRUE(testGrid.getCellState(3,2));
+      ASSERT_TRUE(testGrid.getCellState(3,3));
    }
 
    TEST(CellularAutomataGrid, ExpansionTest) {

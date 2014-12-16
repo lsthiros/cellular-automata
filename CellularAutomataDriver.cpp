@@ -64,7 +64,7 @@ int main(int argc, char** argv) {
 
    BinaryGridCanvas canvas(grid.getGrid());
 
-   sf::RenderWindow window(sf::VideoMode(800,800), "Test Window One");
+   sf::RenderWindow window(sf::VideoMode(800,800), "Cellular Automata");
    while(window.isOpen()) {
       sf::Event event;
       while(window.pollEvent(event)) {
